@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap");
+
 @import url("https://fonts.googleapis.com/css2?family=Sankofa+Display&display=swap");
 
 @tailwind base;
@@ -7,4 +9,8 @@
 
 body {
   font-family: "Plus Jakarta Sans", system-ui;
+}
+
+.cursive {
+  font-family: "Gloria Hallelujah", cursive;
 }

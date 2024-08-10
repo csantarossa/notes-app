@@ -4,7 +4,7 @@ function App() {
   return (
     <div
       data-theme="cupcake"
-      className="w-full min-h-screen flex flex-col justify-start items-center"
+      className="w-[100vw] min-h-screen flex flex-col justify-start items-center overflow-hidden"
     >
       <Notes />
     </div>

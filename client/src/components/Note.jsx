@@ -13,10 +13,10 @@ const Note = ({ id, content, important }) => {
   };
 
   return (
-    <div className="flex w-full justify-between p-2 items-center bg-white rounded-lg hover:scale-[1.025] duration-200 cursor-pointer">
+    <div className="flex w-full justify-between p-2 items-center bg-white rounded-lg hover:bg-[#e0e0e0] duration-200 cursor-pointer">
       <p className="text-sm font-medium text-[#3c3c3c]">{content}</p>
       <button onClick={handleDelete}>
-        <X size={18} className="stroke-[2px] stroke-[#3c3c3c]" />
+        <X size={18} className="stroke-[2.5px] stroke-[#3c3c3c]" />
       </button>
     </div>
   );
