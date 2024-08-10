@@ -1,3 +1,4 @@
+import { Toaster } from "react-hot-toast";
 import Notes from "./pages/Notes";
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
       data-theme="cupcake"
       className="w-[100vw] min-h-screen flex flex-col justify-start items-center overflow-hidden"
     >
+      <Toaster position="bottom-right" />
       <Notes />
     </div>
   );

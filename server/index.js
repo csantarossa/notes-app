@@ -5,32 +5,26 @@ const pool = require("./db");
 const PORT = process.env.PORT || 8000;
 
 const app = express();
-console.log();
 app.use(cors());
 app.use(express.json());
 
-app.get("/api/notes", (req, res) => {
-  pool
-    .query("select * from notes;")
-    .then(([response]) => res.json(response))
-    .catch((error) => {
-      res
-        .status(500)
-        .json({ error: "The GET request has failed server-side." });
-    });
+app.get("/api/notes", async (req, res) => {
+  try {
+    const response = await pool.query("select * from notes");
+    res.json(response.rows);
+  } catch (error) {
+    console.error(error);
+  }
 });
 
 app.post("/api/notes", async (req, res) => {
-  const { note_id, content, important } = req.body;
-
-  const notesArray = fetch("http://localhost:8000/api/notes");
-
+  const { content } = req.body;
   try {
     const response = await pool.query(
-      "insert into notes (note_id, content, important) values (?, ?, ?);",
-      [note_id, content, important]
+      "insert into notes (content) values ($1) returning *;",
+      [content]
     );
-    res.json(response);
+    res.json(response.rows);
   } catch (error) {
     console.error(error);
   }
@@ -39,7 +33,7 @@ app.post("/api/notes", async (req, res) => {
 app.delete("/api/notes/:id", async (req, res) => {
   const { id } = req.params;
   try {
-    const response = await pool.query("delete from notes where note_id = ?;", [
+    const response = await pool.query("delete from notes where note_id = $1;", [
       id,
     ]);
     res.json(response);
@@ -51,10 +45,10 @@ app.delete("/api/notes/:id", async (req, res) => {
 app.get("/api/notes/sorted", async (req, res) => {
   const { sort_by, order } = req.query;
   try {
-    const [notes] = await pool.query(
-      `select * from notes order by ${sort_by} ${order}`
+    const notes = await pool.query(
+      `select * from notes order by ${sort_by} ${order};`
     );
-    res.json(notes);
+    res.json(notes.rows);
   } catch (error) {
     console.error(error);
   }

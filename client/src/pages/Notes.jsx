@@ -30,18 +30,23 @@ const Notes = () => {
             </div>
             <div className="flex flex-col justify-start items-start w-full gap-3">
               <div className="flex justify-start items-center gap-2 mt-4">
-                <Github size={18} className="stroke-[#3c3c3c]" />
+                <Github size={18} className="stroke-[#3c3c3c] stroke-[1.5px]" />
                 <a
                   className="text-sm text-[#3c3c3c]"
+                  target="_blank"
                   href="https://github.com/csantarossa/notes-app"
                 >
                   csantarossa
                 </a>
               </div>
               <div className="flex justify-start items-center gap-2">
-                <Linkedin size={18} className="stroke-[#3c3c3c]" />
+                <Linkedin
+                  size={18}
+                  className="stroke-[#3c3c3c] stroke-[1.5px]"
+                />
                 <a
                   className="text-sm text-[#3c3c3c]"
+                  target="_blank"
                   href="https://www.linkedin.com/in/corey-santarossa/"
                 >
                   corey-santarossa

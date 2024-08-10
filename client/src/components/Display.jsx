@@ -16,7 +16,6 @@ const Display = () => {
         sort_by: "created_at",
         order: sortOrder ? "asc" : "desc",
       });
-      console.log(sortedNotes);
       setNotes(sortedNotes);
     } catch (error) {
       console.error(error);
@@ -33,23 +32,23 @@ const Display = () => {
           <div className=" flex justify-center items-center gap-3">
             <button
               onClick={sortByDate}
-              className="w-8 h-8 relative flex justify-center items-center"
+              className="w-9 h-9 relative flex justify-center items-center"
             >
               <Calendar
                 size={20}
                 className="stroke-[2.2px] stroke-[#ff6149] z-10 mb-[2px]"
               />
-              <div className="bg-white absolute w-full h-full rounded-full"></div>
+              <div className="bg-white absolute w-full h-full rounded-lg"></div>
             </button>
             <button
               onClick={() => alert("This feature is not in production yet.")}
-              className="w-8 h-8 relative flex justify-center items-center"
+              className="w-9 h-9 relative flex justify-center items-center"
             >
               <AlertTriangle
                 size={20}
                 className="stroke-[2.2px] stroke-[#ff6149] z-10 mb-[2px]"
               />
-              <div className="bg-white absolute hover:bg-[#fff] w-full h-full rounded-full"></div>
+              <div className="bg-white absolute hover:bg-[#fff] w-full h-full rounded-lg"></div>
             </button>
           </div>
         </div>

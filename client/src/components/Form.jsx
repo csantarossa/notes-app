@@ -2,9 +2,10 @@ import Button from "./Button";
 import Input from "./Input";
 import api from "../services/api-services";
 import { createContext, useContext, useState } from "react";
+import { NotesContext } from "../pages/Notes";
+import toast from "react-hot-toast";
 
 export const NewNoteContext = createContext();
-import { NotesContext } from "../pages/Notes";
 
 const Form = () => {
   const [newNote, setNewNote] = useState("");
@@ -12,17 +13,14 @@ const Form = () => {
 
   const handleCreateNote = (e) => {
     e.preventDefault();
-
-    const noteObject = {
-      note_id: notes.length + 1,
-      content: newNote,
-      important: false,
-    };
-
-    api.createOne(noteObject).then((response) => {
-      setNewNote("");
-      setNotes(notes.concat(noteObject));
-    });
+    if (newNote && newNote !== "") {
+      api.createOne(newNote).then((response) => {
+        setNotes(notes.concat(response));
+        setNewNote("");
+      });
+    } else {
+      toast.error("A note cannot be empty");
+    }
   };
 
   return (
