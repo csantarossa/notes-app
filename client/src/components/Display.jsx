@@ -1,14 +1,34 @@
 import React, { useContext } from "react";
 import { NotesContext } from "../pages/Notes";
 import Note from "./Note";
+import { Calendar, AlertTriangle } from "@geist-ui/icons";
 
 const Display = () => {
   const [notes] = useContext(NotesContext);
 
   return (
-    <div className="h-[500px] w-[400px] flex flex-col justify-start items-center">
+    <div className="h-[500px] w-[300px] lg:w-[400px] flex flex-col justify-start items-center">
       <div className="w-full flex flex-col gap-4">
-        <h1 className="text-white text-4xl font-semibold">Notes</h1>
+        <div className="flex justify-between items-end">
+          <h1 className="text-white text-4xl font-semibold">Notes</h1>
+          <div className=" flex justify-center items-center gap-3">
+            <button className="w-8 h-8 relative flex justify-center items-center">
+              <AlertTriangle
+                size={20}
+                className="stroke-[2.2px] stroke-[#ff6149] z-10 mb-[2px]"
+              />
+              <div className="bg-white absolute w-full h-full rounded-full"></div>
+            </button>
+            <button className="w-8 h-8 relative flex justify-center items-center">
+              <Calendar
+                size={20}
+                className="stroke-[2.2px] stroke-[#ff6149] z-10 mb-[2px]"
+              />
+              <div className="bg-white absolute w-full h-full rounded-full"></div>
+            </button>
+          </div>
+        </div>
+
         <div className="w-full flex flex-col gap-2">
           {notes.length > 0 ? (
             notes.map((note) => (
