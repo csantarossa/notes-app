@@ -38,7 +38,10 @@ const Display = () => {
               />
               <div className="bg-white absolute w-full h-full rounded-full"></div>
             </button>
-            <button className="w-8 h-8 relative flex justify-center items-center">
+            <button
+              onClick={() => alert("This feature is not in production yet.")}
+              className="w-8 h-8 relative flex justify-center items-center"
+            >
               <AlertTriangle
                 size={20}
                 className="stroke-[2.2px] stroke-[#ff6149] z-10 mb-[2px]"
