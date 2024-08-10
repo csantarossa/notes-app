@@ -17,4 +17,10 @@ const deleteOne = (id) => {
   return request.then((response) => response.data);
 };
 
-export default { getAll, createOne, deleteOne };
+const sortBy = ({ sort_by, order }) => {
+  return axios
+    .get(`${baseUrl}/sorted?sort_by=${sort_by}&order=${order}`)
+    .then((response) => response.data);
+};
+
+export default { getAll, createOne, deleteOne, sortBy };

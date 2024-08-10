@@ -46,4 +46,16 @@ app.delete("/api/notes/:id", async (req, res) => {
   }
 });
 
+app.get("/api/notes/sorted", async (req, res) => {
+  const { sort_by, order } = req.query;
+  try {
+    const [notes] = await pool.query(
+      `select * from notes order by ${sort_by} ${order}`
+    );
+    res.json(notes);
+  } catch (error) {
+    console.error(error);
+  }
+});
+
 app.listen(PORT, () => console.log(`Running on Port ${PORT}...`));
