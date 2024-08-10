@@ -1,14 +1,19 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import Form from "../components/Form";
 import Display from "../components/Display";
+import api from "../services/api-services";
 
 export const NotesContext = createContext();
 
 const Notes = () => {
-  const [notes, setNotes] = useState([
-    { content: "test", important: true, id: 1 },
-    { content: "test 2", important: false, id: 2 },
-  ]);
+  const [notes, setNotes] = useState([]);
+
+  useEffect(() => {
+    api.getAll().then((response) => {
+      setNotes(response);
+    });
+  }, []);
+
   return (
     <NotesContext.Provider value={[notes, setNotes]}>
       <div className="w-full h-screen relative flex justify-between items-center bg-[#ff6149]">

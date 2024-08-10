@@ -13,7 +13,8 @@ const Display = () => {
           {notes.length > 0 ? (
             notes.map((note) => (
               <Note
-                key={note.id}
+                key={note.note_id}
+                id={note.note_id}
                 content={note.content}
                 important={note.important}
               />
