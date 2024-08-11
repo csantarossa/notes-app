@@ -10,7 +10,9 @@ app.use(express.json());
 
 app.get("/api/notes", async (req, res) => {
   try {
-    const response = await pool.query("select * from notes");
+    const response = await pool.query(
+      "select * from notes order by note_id asc"
+    );
     res.json(response.rows);
   } catch (error) {
     console.error(error);
@@ -49,6 +51,20 @@ app.get("/api/notes/sorted", async (req, res) => {
       `select * from notes order by ${sort_by} ${order};`
     );
     res.json(notes.rows);
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+app.put("/api/notes/:id", async (req, res) => {
+  const { id } = req.params;
+  const { important } = req.body;
+  try {
+    const response = await pool.query(
+      `update notes set important = $1 where note_id = $2 returning *;`,
+      [important, id]
+    );
+    res.json(response.rows);
   } catch (error) {
     console.error(error);
   }

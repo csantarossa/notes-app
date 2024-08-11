@@ -1,5 +1,5 @@
-import { X } from "@geist-ui/icons";
-import { useContext } from "react";
+import { X, AlertTriangle } from "@geist-ui/icons";
+import { useContext, useState } from "react";
 import { NotesContext } from "../pages/Notes";
 import api from "../services/api-services";
 
@@ -12,12 +12,36 @@ const Note = ({ id, content, important }) => {
     });
   };
 
+  const handleUpdateImportant = () => {
+    setNotes(
+      notes.map((note) =>
+        note.note_id === id ? { ...note, important: !note.important } : note
+      )
+    );
+    api.updateImportant({ id, important: !important });
+  };
+
   return (
-    <div className="flex w-full justify-between p-2 items-center bg-white rounded-lg hover:bg-[#e0e0e0] duration-200 cursor-pointer">
+    <div className="flex w-full gap-2 justify-between p-2 items-center bg-white rounded-lg hover:bg-[#e0e0e0] duration-200 cursor-pointer">
       <p className="text-sm font-medium text-[#3c3c3c]">{content}</p>
-      <button onClick={handleDelete}>
-        <X size={18} className="stroke-[2.5px] stroke-[#3c3c3c]" />
-      </button>
+      <div className="flex justify-center items-center gap-4">
+        <button onClick={handleUpdateImportant}>
+          {important ? (
+            <AlertTriangle
+              size={18}
+              className="stroke-[2.5px] stroke-[#ff6149] opacity-100"
+            />
+          ) : (
+            <AlertTriangle
+              size={18}
+              className="stroke-[2.5px] stroke-[#ff6149] opacity-30"
+            />
+          )}
+        </button>
+        <button onClick={handleDelete}>
+          <X size={18} className="stroke-[2.5px] stroke-[#3c3c3c]" />
+        </button>
+      </div>
     </div>
   );
 };

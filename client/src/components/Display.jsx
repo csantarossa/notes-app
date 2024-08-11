@@ -22,6 +22,18 @@ const Display = () => {
     }
   };
 
+  const sortByImportant = async () => {
+    try {
+      const sortedNotes = await api.sortBy({
+        sort_by: "important",
+        order: "desc",
+      });
+      setNotes(sortedNotes);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className="h-[500px] w-[300px] lg:w-[400px] flex flex-col justify-start items-center ">
       <div className="w-full flex flex-col gap-4 h-full">
@@ -41,7 +53,7 @@ const Display = () => {
               <div className="bg-white absolute w-full h-full rounded-lg"></div>
             </button>
             <button
-              onClick={() => alert("This feature is not in production yet.")}
+              onClick={sortByImportant}
               className="w-9 h-9 relative flex justify-center items-center"
             >
               <AlertTriangle
