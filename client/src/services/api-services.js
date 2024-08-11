@@ -24,7 +24,6 @@ const sortBy = ({ sort_by, order }) => {
 };
 
 const updateImportant = ({ id, important }) => {
-  console.log(important);
   const request = axios.put(`${baseUrl}/${id}`, { important });
   return request.then((response) => response.data);
 };
