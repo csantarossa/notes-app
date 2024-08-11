@@ -4,6 +4,7 @@ import api from "../services/api-services";
 import { createContext, useContext, useState } from "react";
 import { NotesContext } from "../pages/Notes";
 import toast from "react-hot-toast";
+import { Plus } from "@geist-ui/icons";
 
 export const NewNoteContext = createContext();
 
@@ -27,7 +28,10 @@ const Form = () => {
     <NewNoteContext.Provider value={[newNote, setNewNote]}>
       <form onSubmit={handleCreateNote} className="flex">
         <Input />
-        <Button title="Create" />
+        <Button
+          title="Add"
+          icon={<Plus size={18} className="stroke-[2.2px]" />}
+        />
       </form>
     </NewNoteContext.Provider>
   );

@@ -9,7 +9,7 @@ const Input = () => {
       <input
         className="w-[250px] h-fit border-2 border-[#ff6149] text-base px-2 py-1 rounded-l-md"
         type="text"
-        placeholder="New note"
+        placeholder="Create a note"
         value={newNote}
         onChange={(e) => setNewNote(e.target.value)}
       />
