@@ -1,7 +1,7 @@
 const Button = ({ title, icon }) => {
   return (
     <div className="">
-      <button className="text-base h-full bg-[#ff6149] justify-between items-center gap-1 rounded-r-md border-2 border-[#ff6149] text-white px-2 hover:border-[#ea5a44] hover:bg-[#ea5a44] flex">
+      <button className="text-base h-full bg-[#09090B] justify-between items-center gap-1 rounded-r-md border-2 border-[#09090B] text-white px-2 hover:border-[#212126] hover:bg-[#212126] flex">
         {title}
         {icon}
       </button>

@@ -14,3 +14,8 @@ body {
 .cursive {
   font-family: "Gloria Hallelujah", cursive;
 }
+
+.parent-hover:hover .child-hover {
+  rotate: -15deg;
+  scale: 1.1;
+}

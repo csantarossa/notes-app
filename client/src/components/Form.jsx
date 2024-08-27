@@ -28,10 +28,7 @@ const Form = () => {
     <NewNoteContext.Provider value={[newNote, setNewNote]}>
       <form onSubmit={handleCreateNote} className="flex">
         <Input />
-        <Button
-          title="Add"
-          icon={<Plus size={18} className="stroke-[2.2px]" />}
-        />
+        <Button icon={<Plus size={18} className="stroke-[2.2px]" />} />
       </form>
     </NewNoteContext.Provider>
   );

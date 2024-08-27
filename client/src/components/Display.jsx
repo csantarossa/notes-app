@@ -38,29 +38,29 @@ const Display = () => {
     <div className="h-[500px] w-[300px] lg:w-[400px] flex flex-col justify-start items-center ">
       <div className="w-full flex flex-col gap-4 h-full">
         <div className="flex justify-between items-end relative">
-          <h1 className="text-white text-4xl font-semibold sticky top-0">
+          <h1 className="text-[#F4F4F5] text-4xl font-semibold sticky top-0">
             Notes
           </h1>
           <div className=" flex justify-center items-center gap-3">
             <button
               onClick={sortByDate}
-              className="w-9 h-9 relative flex justify-center items-center"
+              className="w-9 h-9 relative flex justify-center items-center parent-hover"
             >
               <Calendar
                 size={20}
-                className="stroke-[2.2px] stroke-[#ff6149] z-10 mb-[2px]"
+                className="stroke-[2.2px] stroke-[#212126] z-10 mb-[2px] child-hover duration-150"
               />
-              <div className="bg-white absolute w-full h-full rounded-lg"></div>
+              <div className="bg-[#f4f4f5] absolute w-full h-full rounded-lg"></div>
             </button>
             <button
               onClick={sortByImportant}
-              className="w-9 h-9 relative flex justify-center items-center"
+              className="w-9 h-9 relative flex justify-center items-center parent-hover"
             >
               <AlertTriangle
                 size={20}
-                className="stroke-[2.2px] stroke-[#ff6149] z-10 mb-[2px]"
+                className="stroke-[2.2px] stroke-[#212126] z-10 mb-[2px] child-hover duration-150"
               />
-              <div className="bg-white absolute hover:bg-[#fff] w-full h-full rounded-lg"></div>
+              <div className="bg-[#f4f4f5] absolute hover:bg-[#fff] w-full h-full rounded-lg"></div>
             </button>
           </div>
         </div>
@@ -77,11 +77,11 @@ const Display = () => {
             ))
           ) : (
             <div className="h-[200px] w-full flex relative mt-16 animate-pulse overflow-hidden">
-              <h1 className="text-white font-bold text-2xl absolute top-2 right-0 cursive rotate-6">
+              <h1 className="text-[#A1A1AA] font-bold text-2xl absolute top-2 right-0 cursive rotate-6">
                 Put notes here
               </h1>
               <img
-                className="h-40 absolute bottom-0 right-20 rotate-12"
+                className="h-40 opacity-60 absolute bottom-0 right-20 rotate-12"
                 src={CurlyArrowImage}
               />
             </div>

@@ -7,7 +7,7 @@ const Input = () => {
   return (
     <div className="w-fit">
       <input
-        className="w-[250px] h-fit border-2 border-[#ff6149] text-base px-2 py-1 rounded-l-md"
+        className="w-[250px] text-sm border-2 border-[#09090B] px-3 py-1 h-10 rounded-l-md bg-[#f4f4f5]"
         type="text"
         placeholder="Create a note"
         value={newNote}

@@ -22,19 +22,19 @@ const Note = ({ id, content, important }) => {
   };
 
   return (
-    <div className="flex w-full gap-2 justify-between p-2 items-center bg-white rounded-lg hover:bg-[#e0e0e0] duration-200 cursor-pointer">
+    <div className="flex w-full gap-2 justify-between py-2 px-3 items-center bg-[#f4f4f5] rounded-lg hover:bg-[#e0e0e0] duration-200 cursor-pointer">
       <p className="text-sm font-medium text-[#3c3c3c]">{content}</p>
       <div className="flex justify-center items-center gap-4">
         <button onClick={handleUpdateImportant}>
           {important ? (
             <AlertTriangle
               size={18}
-              className="stroke-[2.5px] stroke-[#ff6149] opacity-100"
+              className="stroke-[2.5px] stroke-[#212126] opacity-100"
             />
           ) : (
             <AlertTriangle
               size={18}
-              className="stroke-[2.5px] stroke-[#ff6149] opacity-30"
+              className="stroke-[2.5px] stroke-[#212126] opacity-30"
             />
           )}
         </button>
