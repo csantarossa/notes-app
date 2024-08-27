@@ -39,7 +39,7 @@ const Display = () => {
       <div className="w-full flex flex-col gap-4 h-full">
         <div className="flex justify-between items-end relative">
           <h1 className="text-[#F4F4F5] text-3xl font-medium sticky top-0">
-            Notes
+            Tasks
           </h1>
           <div className=" flex justify-center items-center gap-3">
             <button
@@ -78,7 +78,7 @@ const Display = () => {
           ) : (
             <div className="h-[200px] w-full flex relative mt-16 animate-pulse overflow-hidden">
               <h1 className="text-[#A1A1AA] font-bold text-2xl absolute top-2 right-0 cursive rotate-6">
-                Put notes here
+                Put tasks here
               </h1>
               <img
                 className="h-40 opacity-60 absolute bottom-0 right-20 rotate-12"

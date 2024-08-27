@@ -74,7 +74,7 @@ const Notes = () => {
           </div>
         </div>
         <div className="h-full flex flex-col py-12 justify-center items-center lg:w-[50%] w-full">
-          <Display />
+          {/* <Display /> */}
         </div>
       </div>
     </NotesContext.Provider>
