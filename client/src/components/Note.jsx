@@ -22,24 +22,24 @@ const Note = ({ id, content, important }) => {
   };
 
   return (
-    <div className="flex w-full gap-2 justify-between py-3 px-3 items-center bg-[#f4f4f5] rounded-lg hover:bg-[#e0e0e0] duration-200 cursor-pointer">
-      <p className="text-base font-medium text-[#3c3c3c]">{content}</p>
+    <div className="flex w-full gap-2 justify-between py-3 px-3 items-center bg-secondary rounded-lg duration-200 cursor-pointer">
+      <p className="text-base font-medium text-primary">{content}</p>
       <div className="flex justify-center items-center gap-4">
         <button onClick={handleUpdateImportant}>
           {important ? (
             <Star
               size={18}
-              className="stroke-[2px] stroke-[#212126] opacity-80"
+              className="stroke-[2px] stroke-primary opacity-80"
             />
           ) : (
             <Star
               size={18}
-              className="stroke-[2px] stroke-[#212126] opacity-30"
+              className="stroke-[2px] stroke-primary opacity-30"
             />
           )}
         </button>
         <button onClick={handleDelete}>
-          <X size={19} className="stroke-[2.5px] stroke-[#3c3c3c]" />
+          <X size={19} className="stroke-[2.5px] stroke-primary opacity-90" />
         </button>
       </div>
     </div>

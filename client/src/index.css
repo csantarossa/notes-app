@@ -10,6 +10,7 @@
 body {
   font-family: "DM Sans", sans-serif;
   letter-spacing: 0.5px;
+  scrollbar-color: rebeccapurple green;
 }
 
 .cursive {

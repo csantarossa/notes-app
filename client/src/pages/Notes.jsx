@@ -4,6 +4,7 @@ import Display from "../components/Display";
 import api from "../services/api-services";
 import { Github, Linkedin } from "@geist-ui/icons";
 import Avatar from "../components/Avatar";
+import Settings from "./Settings";
 
 export const NotesContext = createContext();
 
@@ -18,24 +19,23 @@ const Notes = () => {
 
   return (
     <NotesContext.Provider value={[notes, setNotes]}>
-      <div className="w-full h-screen flex flex-col lg:flex-row justify-between items-center bg-[#09090B] relative">
+      <div className="w-full h-screen flex flex-col lg:flex-row justify-between items-center bg-primary relative">
         <Avatar />
-        <div className="h-full py-5 flex justify-center items-center flex-col lg:w-[50%] w-full lg:rounded-r-2xl rounded-b-2xl bg-[#F4F4F5] relative">
+        <Settings />
+        <div className="h-full py-5 flex justify-center items-center flex-col lg:w-[50%] w-full lg:rounded-r-2xl rounded-b-2xl bg-secondary relative">
           <div className="flex justify-start gap-[8px] items-center absolute top-5 left-8">
-            <div className="h-5 w-4 bg-[#09090B] relative">
-              <div className="bg-[#5d5d63] h-[7px] w-[9px] absolute top-0 right-0"></div>
-              <div className="bg-[#f4f4f5] h-2 w-4 absolute top-[-5px] rotate-45 right-[-6px]"></div>
+            <div className="h-5 w-4 bg-primary relative">
+              <div className="bg-accent h-[7px] w-[9px] absolute top-0 right-0"></div>
+              <div className="bg-secondary h-2 w-4 absolute top-[-5px] rotate-45 right-[-6px]"></div>
             </div>
-            <div className="h-5 w-[1px] ml-1 bg-[#b5b5b5]"></div>
-            <h1 className="font-black text-2xl text-[#09090B]">GotIt</h1>
+            <div className="h-5 w-[1px] ml-1 bg-accent opacity-50"></div>
+            <h1 className="font-bold text-2xl text-primary">GotIt</h1>
           </div>
 
           <div className="flex flex-col gap-2 lg:mt-0 mt-20">
             <div>
-              <h1 className="font-bold text-3xl text-[#09090B]">
-                Task Manager
-              </h1>
-              <p className="text-sm font-normal text-[#505050]">
+              <h1 className="font-bold text-3xl text-primary">Task Manager</h1>
+              <p className="text-sm font-normal text-accent">
                 Track all yours tasks in one place.
               </p>
             </div>
@@ -51,11 +51,9 @@ const Notes = () => {
               >
                 <Github
                   size={18}
-                  className="stroke-[#09090B] stroke-[1.5px] child-hover duration-150"
+                  className="stroke-primary stroke-[1.5px] child-hover duration-150"
                 />
-                <p className="text-sm text-[#09090B] font-normal">
-                  csantarossa
-                </p>
+                <p className="text-sm text-primary font-normal">csantarossa</p>
               </a>
               <a
                 target="_blank"
@@ -64,9 +62,9 @@ const Notes = () => {
               >
                 <Linkedin
                   size={18}
-                  className="stroke-[#09090B] stroke-[1.5px] child-hover duration-150"
+                  className="stroke-primary stroke-[1.5px] child-hover duration-150"
                 />
-                <p className="text-sm font-normal text-[#09090B]">
+                <p className="text-sm font-normal text-primary">
                   corey-santarossa
                 </p>
               </a>
@@ -74,7 +72,7 @@ const Notes = () => {
           </div>
         </div>
         <div className="h-full flex flex-col py-12 justify-center items-center lg:w-[50%] w-full">
-          {/* <Display /> */}
+          <Display />
         </div>
       </div>
     </NotesContext.Provider>

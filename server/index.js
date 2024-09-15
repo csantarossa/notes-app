@@ -1,73 +1,25 @@
 const express = require("express");
 const cors = require("cors");
-const pool = require("./db");
+const notesRouter = require("./routes/notesRouter");
+const authRouter = require("./routes/authRouter");
+const cookieParser = require("cookie-parser");
 
+// Initialise environment
 const PORT = process.env.PORT || 8000;
-
 const app = express();
-app.use(cors());
+
+// Middleware
+app.use(cookieParser());
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
 app.use(express.json());
 
-app.get("/api/notes", async (req, res) => {
-  try {
-    const response = await pool.query(
-      "select * from notes order by note_id asc"
-    );
-    res.json(response.rows);
-  } catch (error) {
-    console.error(error);
-  }
-});
-
-app.post("/api/notes", async (req, res) => {
-  const { content } = req.body;
-  try {
-    const response = await pool.query(
-      "insert into notes (content) values ($1) returning *;",
-      [content]
-    );
-    res.json(response.rows);
-  } catch (error) {
-    console.error(error);
-  }
-});
-
-app.delete("/api/notes/:id", async (req, res) => {
-  const { id } = req.params;
-  try {
-    const response = await pool.query("delete from notes where note_id = $1;", [
-      id,
-    ]);
-    res.json(response);
-  } catch (error) {
-    console.error(error);
-  }
-});
-
-app.get("/api/notes/sorted", async (req, res) => {
-  const { sort_by, order } = req.query;
-  try {
-    const notes = await pool.query(
-      `select * from notes order by ${sort_by} ${order};`
-    );
-    res.json(notes.rows);
-  } catch (error) {
-    console.error(error);
-  }
-});
-
-app.put("/api/notes/:id", async (req, res) => {
-  const { id } = req.params;
-  const { important } = req.body;
-  try {
-    const response = await pool.query(
-      `update notes set important = $1 where note_id = $2 returning *;`,
-      [important, id]
-    );
-    res.json(response.rows);
-  } catch (error) {
-    console.error(error);
-  }
-});
+// Routes
+app.use("/api/auth", authRouter);
+app.use("/api/notes", notesRouter);
 
 app.listen(PORT, () => console.log(`Running on Port ${PORT}...`));
