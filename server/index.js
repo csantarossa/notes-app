@@ -3,9 +3,10 @@ const cors = require("cors");
 const notesRouter = require("./routes/notesRouter");
 const authRouter = require("./routes/authRouter");
 const cookieParser = require("cookie-parser");
+require("dotenv").config();
 
 // Initialise environment
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT;
 const app = express();
 
 // Middleware
