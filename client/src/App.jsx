@@ -21,7 +21,9 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/dashboard" element={<Notes />} />
+          <Route element={<ProtectedRoute />}>
+            <Route path="/dashboard" element={<Notes />} />
+          </Route>
         </Routes>
       </div>
     </UserContextProvider>

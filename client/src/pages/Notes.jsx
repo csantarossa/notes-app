@@ -21,7 +21,7 @@ const Notes = () => {
     <NotesContext.Provider value={[notes, setNotes]}>
       <div className="w-full h-screen flex flex-col lg:flex-row justify-between items-center bg-primary relative">
         <Avatar />
-        <Settings />
+
         <div className="h-full py-5 flex justify-center items-center flex-col lg:w-[50%] w-full lg:rounded-r-2xl rounded-b-2xl bg-secondary relative">
           <div className="flex justify-start gap-[8px] items-center absolute top-5 left-8">
             <div className="h-5 w-4 bg-primary relative">

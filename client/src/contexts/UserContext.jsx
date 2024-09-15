@@ -8,11 +8,13 @@ export const UserContext = createContext();
 const UserContextProvider = ({ children }) => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    checkAuth();
-  }, [isLoaded]);
+    if (!user) {
+      checkAuth();
+    }
+  }, []);
 
   const checkAuth = async () => {
     try {
@@ -25,12 +27,12 @@ const UserContextProvider = ({ children }) => {
     } catch (error) {
       console.error(error);
     } finally {
-      setIsLoaded(false);
+      setIsLoading(false);
     }
   };
 
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <UserContext.Provider value={{ user, setUser, isLoading }}>
       {children}
     </UserContext.Provider>
   );
